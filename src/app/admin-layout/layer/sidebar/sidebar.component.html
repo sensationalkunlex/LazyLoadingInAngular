@@ -1,0 +1,37 @@
+<nav class="sidebar">
+  <div class="list-group">
+      <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fa fa-fw fa-dashboard"></i>
+          <span>Dashboard</span>
+      </a>
+      <div class="nested-menu">
+          <a class="list-group-item" (click)="expandMenu('lists')">
+              <i class="fa fa-group"></i>
+              <span>User</span>
+              <span style="float:right" *ngIf="!(DisplayMenu === 'lists')"> <i class="fa fa-plus" ></i></span>
+              <span style="float:right" *ngIf="(DisplayMenu === 'lists')"> <i class="fa fa-minus" ></i></span>
+          </a>
+          <!-- [ngClass]="{'fa fa-minus':DisplayMenu === 'lists','fa fa-plus':!DisplayMenu === 'lists' }" -->
+
+          <li class="nested" [class.expand]="DisplayMenu === 'lists'">
+              <ul class="submenu">
+                  <li>
+                      <a routerLink="/user/list" [routerLinkActive]="['router-link-active']">
+                          <i class="fa fa-address-book"></i>&nbsp;
+                          <span> List</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a  routerLink="/user/register" [routerLinkActive]="['router-link-active']">
+                          <i class="fa fa-registered"></i>&nbsp;
+                          <span>Register </span>
+                      </a>
+                  </li>
+
+              </ul>
+          </li>
+      </div>
+  </div>
+
+</nav>
+
